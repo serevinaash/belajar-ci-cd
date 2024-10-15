@@ -19,11 +19,11 @@
   },
   "homepage": "https://github.com/2pai/github-actions-ci-cd-nodejs#readme",
   "dependencies": {
-    "express": "^4.17.1",
     "http": "0.0.1-security"
   },
   "devDependencies": {
-    "jest": "^26.4.2",
+    "express": "^4.21.1",
+    "jest": "^26.6.3",
     "supertest": "^4.0.2"
   }
 }
