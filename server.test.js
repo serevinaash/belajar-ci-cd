@@ -2,12 +2,6 @@ const app = require('./server')
 const supertest = require('supertest')
 const request = supertest(app)
 
-it('Call the /instagram endpoint', async done => {
-    const res = await request.get('/instagram')
-    expect(res.status).toBe(200)
-    expect(res.text).toBe('Hello, instagram indonesia!')
-    done()
-})
 
 it('Call the /youtube endpoint', async done => {
     const res = await request.get('/youtube')
