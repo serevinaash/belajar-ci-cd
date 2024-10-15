@@ -1,7 +1,13 @@
-const app = require('./server') // Link to your server file
+const app = require('./server')
 const supertest = require('supertest')
 const request = supertest(app)
 
+it('Call the /instagram endpoint', async done => {
+    const res = await request.get('/instagram')
+    expect(res.status).toBe(200)
+    expect(res.text).toBe('Hello, instagram indonesia!')
+    done()
+})
 
 it('Call the /youtube endpoint', async done => {
     const res = await request.get('/youtube')
@@ -9,24 +15,31 @@ it('Call the /youtube endpoint', async done => {
     expect(res.text).toBe('Hello, youtube indonesia!')
     done()
 })
+
+it('Call the /twitter endpoint', async done => { // New test for /twitter
+    const res = await request.get('/twitter')
+    expect(res.status).toBe(200)
+    expect(res.text).toBe('Hello, twitter indonesia!')
+    done()
+})
+
 it('Call the / endpoint', async done => {
     const res = await request.get('/')
     expect(res.status).toBe(200)
     expect(res.text).toBe('This App is running properly!')
     done()
 })
-it('Call the /pong endpoint', async done => {
+
+it('Call the /ping endpoint', async done => {
     const res = await request.get('/ping')
     expect(res.status).toBe(200)
     expect(res.text).toBe('Pong!')
     done()
 })
-it('Call the /hello/:name endpoint', async done => {
-    const res = await request.get('/hello/Iqbal')
+
+it('Call the /hello/:name endpoint with Serevina', async done => {
+    const res = await request.get('/hello/Serevina')
     expect(res.status).toBe(200)
-    expect(res.body.message).toBe('Hello Iqbal')
+    expect(res.body.message).toBe('Hello Serevina')
     done()
 })
-  
-
-  
